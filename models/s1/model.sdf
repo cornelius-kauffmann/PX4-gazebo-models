@@ -143,7 +143,7 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass> <!-- This mass seems to be wrong -->
         <inertia>
-          <ixx>9.75e-02</ixx>
+          <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.000166704</iyy>
@@ -207,7 +207,7 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
         <inertia>
-          <ixx>9.75e-02</ixx>
+          <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.000166704</iyy>
@@ -271,7 +271,7 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
         <inertia>
-          <ixx>9.75e-02</ixx>
+          <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.000166704</iyy>
@@ -335,7 +335,7 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
         <inertia>
-          <ixx>9.75e-02</ixx>
+          <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.000166704</iyy>
@@ -399,7 +399,7 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
         <inertia>
-          <ixx>9.75e-02</ixx>
+          <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.000166704</iyy>
@@ -463,7 +463,7 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
         <inertia>
-          <ixx>9.75e-02</ixx>
+          <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.000166704</iyy>
@@ -527,7 +527,7 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass> <!-- This mass seems to be wrong -->
         <inertia>
-          <ixx>9.75e-02</ixx>
+          <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.000166704</iyy>
@@ -591,7 +591,7 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass> <!-- This mass seems to be wrong -->
         <inertia>
-          <ixx>9.75e-02</ixx>
+          <ixx>9.75e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.000166704</iyy>
@@ -1272,6 +1272,8 @@
 
 </sdf>
 
+<!-- Testkommentar 3 -->
 
 
-<!-- Das ist ein test -->
+
+
