@@ -601,7 +601,7 @@
         </inertia>
       </inertial>
       <collision name='rotor_7_collision'>
-        <pose relative_to="rotor_7">0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.005</length>
@@ -1308,7 +1308,7 @@
 
 </sdf>
 
-<!-- Test -->
+<!-- Neuer Test -->
 
 
 
