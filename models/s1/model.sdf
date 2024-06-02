@@ -137,7 +137,7 @@
       <pose relative_to="base_link"> 1.2 0 0 0 0 0 </pose>
     </link>
 <!-- Propellers -->
-    <!-- Propeller 0 -->
+    <!-- Propeller 0 (vorne links)-->
     <link name='rotor_0'>
       <pose relative_to="nose_link">-0.4481 0.97 -0.03 0 0 0</pose>
       <inertial>
@@ -201,7 +201,7 @@
         </dynamics>
       </axis>
     </joint>
-    <!-- Propeller 1 -->
+    <!-- Propeller 1 (vorne links zwei)-->
     <link name='rotor_1'>
       <pose relative_to="nose_link">-0.9 0.97 -0.03 0 0 0</pose>
       <inertial>
@@ -265,7 +265,7 @@
         </dynamics>
       </axis>
     </joint>
-    <!-- Propeller 2 -->
+    <!-- Propeller 2 (vorne links drei)-->
     <link name='rotor_2'>
       <pose relative_to="nose_link">-1.3519 0.97 -0.03 0 0 0</pose>
       <inertial>
@@ -329,7 +329,7 @@
         </dynamics>
       </axis>
     </joint>
-    <!-- Propeller 3 -->
+    <!-- Propeller 3 (vorne links 4)-->
     <link name='rotor_3'>
       <pose relative_to="nose_link">-2.1 0.97 -0.03 0 0 0</pose>
       <inertial>
@@ -393,7 +393,7 @@
         </dynamics>
       </axis>
     </joint>
-    <!-- Propeller 4 -->
+    <!-- Propeller 4 (vorne rechts 1)-->
     <link name='rotor_4'>
       <pose relative_to="nose_link">-0.4481	-0.97	-0.03 0 0 0</pose>
       <inertial>
@@ -457,7 +457,7 @@
         </dynamics>
       </axis>
     </joint>
-    <!-- Propeller 5 -->
+    <!-- Propeller 5 (vorne rechts 2)-->
     <link name='rotor_5'>
       <pose relative_to="nose_link">-0.9 -0.97 -0.03 0 0 0</pose>
       <inertial>
@@ -521,7 +521,7 @@
         </dynamics>
       </axis>
     </joint>
-    <!-- Propeller 6 -->
+    <!-- Propeller 6 (vorne rechts 3)-->
     <link name='rotor_6'>
       <pose relative_to="nose_link">-1.3519	-0.97	-0.03 0 0 0</pose>
       <inertial>
@@ -585,7 +585,7 @@
         </dynamics>
       </axis>
     </joint>
-    <!-- Propeller 7 -->
+    <!-- Propeller 7 (vorne rechts 4)-->
     <link name='rotor_7'>
       <pose relative_to="nose_link">-2.1 -0.97 -0.03 0 0 0</pose>
       <inertial>
@@ -651,7 +651,7 @@
     </joint>
     <!-- Pusher Prop left -->
     <link name='rotor_8'>
-      <pose relative_to="nose_link">-2.040004 0.47 0.089 0 1.5708 0</pose>
+      <pose relative_to="nose_link">-2.040004 0.47 0.089 0 1.5708 0</pose> <!-- Rotation um 90° um y Achse -->
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -1122,7 +1122,7 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>7100</maxRotVelocity>
+      <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
@@ -1141,7 +1141,7 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>7100</maxRotVelocity>
+      <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
@@ -1160,7 +1160,7 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>7100</maxRotVelocity>
+      <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
@@ -1179,7 +1179,7 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>7100</maxRotVelocity>
+      <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
@@ -1198,7 +1198,7 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>7100</maxRotVelocity>
+      <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
@@ -1217,7 +1217,7 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>7100</maxRotVelocity>
+      <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
@@ -1236,7 +1236,7 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>7100</maxRotVelocity>
+      <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
@@ -1255,7 +1255,7 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>7100</maxRotVelocity>
+      <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
@@ -1274,8 +1274,8 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>3800</maxRotVelocity>
-      <motorConstant>0.303e-04</motorConstant>
+      <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
+      <motorConstant>1.703e-04</motorConstant>
       <momentConstant>0.01</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
@@ -1293,8 +1293,8 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>3800</maxRotVelocity>
-      <motorConstant>0.303e-04</motorConstant>
+      <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
+      <motorConstant>1.703e-04</motorConstant>
       <momentConstant>0.01</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>7</motorNumber>
