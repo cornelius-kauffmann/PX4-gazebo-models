@@ -139,7 +139,7 @@
 <!-- Propellers -->
     <!-- Propeller 0 (vorne links)-->
     <link name='rotor_0'>
-      <pose relative_to="nose_link">-0.4481 0.97 -0.03 0 0 0</pose>
+      <pose relative_to="nose_link">-0.4481 0.97 -0.03 0.035 0 0</pose> <!-- rotation of 2° about x axis -->
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass> <!-- This mass seems to be wrong -->
@@ -331,7 +331,7 @@
     </joint>
     <!-- Propeller 3 (vorne links 4)-->
     <link name='rotor_3'>
-      <pose relative_to="nose_link">-2.1 0.97 -0.03 0 0 0</pose>
+      <pose relative_to="nose_link">-2.1 0.97 -0.03 -0.035 0 0</pose> <!-- rotation of -2° about x axis -->
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -395,7 +395,7 @@
     </joint>
     <!-- Propeller 4 (vorne rechts 1)-->
     <link name='rotor_4'>
-      <pose relative_to="nose_link">-0.4481	-0.97	-0.03 0 0 0</pose>
+      <pose relative_to="nose_link">-0.4481	-0.97	-0.03 -0.035 0 0</pose> <!-- rotation of -2° about x axis -->
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -587,7 +587,7 @@
     </joint>
     <!-- Propeller 7 (vorne rechts 4)-->
     <link name='rotor_7'>
-      <pose relative_to="nose_link">-2.1 -0.97 -0.03 0 0 0</pose>
+      <pose relative_to="nose_link">-2.1 -0.97 -0.03 0.035 0 0</pose> <!-- rotation of 2° about x axis -->
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass> <!-- This mass seems to be wrong -->
