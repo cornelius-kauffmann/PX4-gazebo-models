@@ -649,74 +649,9 @@
         </dynamics>
       </axis>
     </joint>
-    <!-- Pusher Prop left -->
-    <link name='rotor_8'>
-      <pose relative_to="nose_link">-2.040004 0.47 0.089 0 1.5708 0</pose> <!-- Rotation um 90° um y Achse -->
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>0.005</mass>
-        <inertia>
-          <ixx>9.75e-07</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.000166704</iyy>
-          <iyz>0</iyz>
-          <izz>0.000167604</izz>
-        </inertia>
-      </inertial>
-      <collision name='rotor_8_collision'>
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.005</length>
-            <radius>0.06</radius>
-          </cylinder>
-        </geometry>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
-      </collision>
-      <visual name='rotor_8_visual'>
-        <pose>0 0 0 0 -1.5708 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.001 0.001 0.001</scale>
-            <uri>model://s1/meshes/S1_Pusher-Prop_CCW.stl</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <ambient>0 0 1 1.0</ambient>
-          <diffuse>0 0 1 1.0</diffuse>
-        </material>
-      </visual>
-      <gravity>1</gravity>
-      <velocity_decay/>
-      <self_collide>0</self_collide>
-    </link>
-    <joint name='rotor_8_joint' type='revolute'>
-      <pose>0.0 0 0.0 0 0 0</pose>
-      <child>rotor_8</child>
-      <parent>base_link</parent>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-      </axis>
-    </joint>
     <!-- Pusher Prop right -->
     <link name='rotor_9'>
-      <pose relative_to="nose_link">-2.040004 -0.47 0.089 0 1.5708 0</pose>
+      <pose relative_to="nose_link">-2.440004 0 0.089 0 1.5708 0</pose> <!-- previous position: -2.040004 -0.47 0.089 -->
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -977,16 +912,18 @@
       <cla>4.926</cla>
       <cda>0.5647</cda>
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
-      <alpha_stall>0.227</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
+      <alpha_stall>5.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
-      <cda_stall>-1.12</cda_stall>
+      <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <cp>1.0554 0.584509 -0.059526</cp> <!-- cp wird im neuen Gazebo relativ zu dem hier genannten link definiert (hier base link) -->
+      <!-- <cp>0.57 0.28 0</cp> -->
+      <cp>1.0554 0.584509 -0.059526</cp> <!-- +/- front/rear left/right up/down-->
+      <!-- <cp>-0.146 0.584509 -0.059526</cp> relative to nose link --> 
       <area>0.207</area> <!-- __corny value for both together?-->
       <air_density>1.2</air_density>
-      <forward>1 0 0</forward> <!-- gefaked von rc_cessna Seitenleitwerk -->
-      <upward>0 1 0</upward> <!-- gefaked von rc_cessna Seitenleitwerk -->
-      <link_name>base_link</link_name> <!--_relativ zu diesem Link ist zB cp definiert! -->
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
       <control_joint_name>servo_0</control_joint_name>
       <control_joint_rad_to_cl>-0.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
     </plugin>
@@ -1001,15 +938,17 @@
       <cla>4.926</cla>
       <cda>0.5647</cda>
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
-      <alpha_stall>0.227</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
+      <alpha_stall>5.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
-      <cda_stall>-1.12</cda_stall>
+      <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
+      <!-- <cp>0.57 0.28 0</cp> -->
       <cp>1.0554 -0.584509	-0.059526</cp> <!-- +/- front/rear left/right up/down-->
+      <!-- <cp>-0.146 -0.584509 -0.059526</cp> relativ zu nose_link-->
       <area>0.207</area>
       <air_density>1.2</air_density>
-      <forward>1 0 0</forward> <!-- gefaked von rc_cessna Seitenleitwerk -->
-      <upward>0 1 0</upward> <!-- gefaked von rc_cessna Seitenleitwerk -->
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>servo_1</control_joint_name>
       <control_joint_rad_to_cl>-0.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
@@ -1028,9 +967,11 @@
       <cma>0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
       <cla_stall>-1.428</cla_stall> <!-- __corny: -1.428/rad, p4: -2.1001-->
-      <cda_stall>-1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
+      <cda_stall>1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
+      <!-- <cp>-0.38 0.5 0</cp> -->
       <cp>-0.602	0.962509	0.089</cp>
+      <!-- <cp>-1.802 0.962509 0.089</cp> relative to nose link-->
       <area>0.505</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -1052,9 +993,11 @@
       <cma>0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
       <cla_stall>-1.428</cla_stall> <!-- __corny: -1.428/rad, p4: -2.1001-->
-      <cda_stall>-1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
+      <cda_stall>1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
+      <!-- <cp>-0.38 0.5 0</cp> -->
       <cp>-0.602	-0.962509	0.089</cp>
+      <!-- <cp>-1.802 -0.962509 0.089</cp> relative to nose link -->
       <area>0.505</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -1259,25 +1202,6 @@
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
-    <!-- Pusher Motor left -->
-    <plugin
-        filename="gz-sim-multicopter-motor-model-system"
-        name="gz::sim::systems::MulticopterMotorModel">
-      <jointName>rotor_8_joint</jointName>
-      <linkName>rotor_8</linkName>
-      <turningDirection>cw</turningDirection>
-      <timeConstantUp>0.0125</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>1.703e-04</motorConstant>
-      <momentConstant>0.01</momentConstant> <!-- dragTorque = thrust*momentConstant -->
-      <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>6</motorNumber>
-      <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
-      <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
-      <motorType>velocity</motorType>
-    </plugin>
     <!-- Pusher Motor right -->
     <plugin
         filename="gz-sim-multicopter-motor-model-system"
@@ -1288,7 +1212,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>1.703e-04</motorConstant>
+      <motorConstant>8.703e-04</motorConstant>
       <momentConstant>0.01</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
