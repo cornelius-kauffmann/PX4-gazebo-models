@@ -6,7 +6,7 @@
 <!-- Base link (Fuselage + Wings) -->
     <link name='base_link'>
       <!-- 0 0 0.115 0 0 0 -->
-      <pose>0 0 0.115 0 0 0</pose> <!-- Position of P2 Frame relative to inertial frame. sitl flight controller is at base link origin. therefore CG should be at base link origin -->
+      <pose>0 0 0.115 0 0 0</pose> <!-- Position of S1 CG Frame relative to inertial frame. sitl flight controller is at base link origin. therefore CG should be at base link origin -->
       <inertial>
         <pose>0 0 0 0 0 0</pose> <!-- Position of inertia tensor relative to base_link frame (center of gravity) should be at base link origin -->
         <mass>24.0</mass>
@@ -981,14 +981,13 @@
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <!-- <cp>0.57 0.28 0</cp> -->
-      <cp>1.0554 0.584509 -0.059526</cp> <!-- +/- front/rear left/right up/down-->
+      <cp>1.0554 0.584509 -0.059526</cp> <!-- cp wird im neuen Gazebo relativ zu dem hier genannten link definiert (hier base link) -->
       <!-- <cp>-0.146 0.584509 -0.059526</cp> relative to nose link --> 
       <area>0.207</area> <!-- __corny value for both together?-->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward> <!-- gefaked von rc_cessna Seitenleitwerk -->
       <upward>0 1 0</upward> <!-- gefaked von rc_cessna Seitenleitwerk -->
-      <link_name>base_link</link_name>
+      <link_name>base_link</link_name> <!--_relativ zu diesem Link ist zB cp definiert! -->
       <control_joint_name>servo_0</control_joint_name>
       <control_joint_rad_to_cl>-0.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
     </plugin>
@@ -1080,12 +1079,12 @@
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
         <!-- Winglet Left -->
       <a0>0.</a0>
-      <cla>-0.0541</cla>
-      <cda>-0.00286</cda>
+      <cla>4.752798721</cla> <!-- Muss auf Winglet Fläche referenziert sein! Hier habe ich Cessna Wert genutzt-->
+      <cda>0.6417112299</cda> <!-- Cessna Wert -->
       <cma>0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2094</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
       <cla_stall>-1.428</cla_stall> <!-- das ist alt: __corny: -1.428/rad, p4: -2.1001-->
-      <cda_stall>1.12</cda_stall> <!-- das ist alt: __corny: 1.12, p4: 0.8362, big difference-->
+      <cda_stall>-0.9233984055</cda_stall> <!-- Cessna Wert -->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
       <cp>-0.665 1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
       <area>0.04865</area>
@@ -1095,20 +1094,20 @@
       <link_name>base_link</link_name>
     </plugin>
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
-        <!-- Winglet Right -->
+        <!-- Winglet Right-->
       <a0>0.</a0>
-      <cla>-0.0541</cla>
-      <cda>-0.00286</cda>
+      <cla>4.752798721</cla> <!-- Muss auf Winglet Fläche referenziert sein! Hier habe ich Cessna Wert genutzt-->
+      <cda>0.6417112299</cda> <!-- Cessna Wert -->
       <cma>0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2094</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
-      <cla_stall>-1.428</cla_stall> <!-- __corny: -1.428/rad, p4: -2.1001-->
-      <cda_stall>1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
+      <cla_stall>-1.428</cla_stall> <!-- das ist alt: __corny: -1.428/rad, p4: -2.1001-->
+      <cda_stall>-0.9233984055</cda_stall> <!-- Cessna Wert -->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <cp>-0.665 -1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt) -->
+      <cp>-0.665 -1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
       <area>0.04865</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward> <!-- das checken! -->
-      <upward>0 1 0</upward> <!-- das checken! -->
+      <upward>0 -1 0</upward> <!-- das checken! -->
       <link_name>base_link</link_name>
     </plugin>
 
@@ -1124,10 +1123,10 @@
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
-      <momentConstant>0.06</momentConstant>
+      <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
-      <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
+      <rotorDragCoefficient>0.000106428</rotorDragCoefficient> 
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
@@ -1143,7 +1142,7 @@
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
-      <momentConstant>0.06</momentConstant>
+      <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>1</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
@@ -1162,7 +1161,7 @@
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
-      <momentConstant>0.06</momentConstant>
+      <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>1</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
@@ -1180,8 +1179,8 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>7.2597e-05</motorConstant>
-      <momentConstant>0.06</momentConstant>
+      <motorConstant>7.2597e-05</motorConstant> 
+      <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>2</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
@@ -1200,7 +1199,7 @@
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
-      <momentConstant>0.06</momentConstant>
+      <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>3</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
@@ -1219,7 +1218,7 @@
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
-      <momentConstant>0.06</momentConstant>
+      <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>4</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
@@ -1238,7 +1237,7 @@
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
-      <momentConstant>0.06</momentConstant>
+      <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>4</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
@@ -1257,7 +1256,7 @@
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
-      <momentConstant>0.06</momentConstant>
+      <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>5</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
@@ -1274,9 +1273,9 @@
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
+      <maxRotVelocity>1388</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>1.703e-04</motorConstant>
-      <momentConstant>0.01</momentConstant>
+      <momentConstant>0.01</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
@@ -1293,9 +1292,9 @@
       <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
+      <maxRotVelocity>1388</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>1.703e-04</motorConstant>
-      <momentConstant>0.01</momentConstant>
+      <momentConstant>0.01</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>7</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
