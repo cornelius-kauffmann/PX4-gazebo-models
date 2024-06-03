@@ -986,8 +986,8 @@
       <!-- <cp>-0.146 0.584509 -0.059526</cp> relative to nose link --> 
       <area>0.207</area> <!-- __corny value for both together?-->
       <air_density>1.2</air_density>
-      <forward>1 0 0</forward>
-      <upward>0 0 1</upward>
+      <forward>1 0 0</forward> <!-- gefaked von rc_cessna Seitenleitwerk -->
+      <upward>0 1 0</upward> <!-- gefaked von rc_cessna Seitenleitwerk -->
       <link_name>base_link</link_name>
       <control_joint_name>servo_0</control_joint_name>
       <control_joint_rad_to_cl>-0.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
@@ -1012,8 +1012,8 @@
       <!-- <cp>-0.146 -0.584509 -0.059526</cp> relativ zu nose_link-->
       <area>0.207</area>
       <air_density>1.2</air_density>
-      <forward>1 0 0</forward>
-      <upward>0 0 1</upward>
+      <forward>1 0 0</forward> <!-- gefaked von rc_cessna Seitenleitwerk -->
+      <upward>0 1 0</upward> <!-- gefaked von rc_cessna Seitenleitwerk -->
       <link_name>base_link</link_name>
       <control_joint_name>servo_1</control_joint_name>
       <control_joint_rad_to_cl>-0.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
