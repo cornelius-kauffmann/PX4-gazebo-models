@@ -916,9 +916,7 @@
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <!-- <cp>0.57 0.28 0</cp> -->
       <cp>1.0554 0.584509 -0.059526</cp> <!-- +/- front/rear left/right up/down-->
-      <!-- <cp>-0.146 0.584509 -0.059526</cp> relative to nose link --> 
       <area>0.207</area> <!-- __corny value for both together?-->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -942,9 +940,7 @@
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <!-- <cp>0.57 0.28 0</cp> -->
       <cp>1.0554 -0.584509	-0.059526</cp> <!-- +/- front/rear left/right up/down-->
-      <!-- <cp>-0.146 -0.584509 -0.059526</cp> relativ zu nose_link-->
       <area>0.207</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
