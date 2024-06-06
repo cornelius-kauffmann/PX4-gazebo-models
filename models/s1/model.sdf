@@ -912,7 +912,7 @@
       <cla>4.926</cla>
       <cda>0.5647</cda>
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
-      <alpha_stall>5.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
+      <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
@@ -938,7 +938,7 @@
       <cla>4.926</cla>
       <cda>0.5647</cda>
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
-      <alpha_stall>5.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
+      <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
@@ -969,9 +969,7 @@
       <cla_stall>-1.428</cla_stall> <!-- __corny: -1.428/rad, p4: -2.1001-->
       <cda_stall>1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <!-- <cp>-0.38 0.5 0</cp> -->
       <cp>-0.602	0.962509	0.089</cp>
-      <!-- <cp>-1.802 0.962509 0.089</cp> relative to nose link-->
       <area>0.505</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -995,9 +993,7 @@
       <cla_stall>-1.428</cla_stall> <!-- __corny: -1.428/rad, p4: -2.1001-->
       <cda_stall>1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <!-- <cp>-0.38 0.5 0</cp> -->
       <cp>-0.602	-0.962509	0.089</cp>
-      <!-- <cp>-1.802 -0.962509 0.089</cp> relative to nose link -->
       <area>0.505</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -1022,7 +1018,7 @@
       <cla_stall>-1.428</cla_stall> <!-- das ist alt: __corny: -1.428/rad, p4: -2.1001-->
       <cda_stall>-0.9233984055</cda_stall> <!-- Cessna Wert -->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <cp>0.665 1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
+      <cp>-0.665 1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
       <area>0.04865</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward> <!-- das checken! -->
@@ -1039,7 +1035,7 @@
       <cla_stall>-1.428</cla_stall> <!-- das ist alt: __corny: -1.428/rad, p4: -2.1001-->
       <cda_stall>-0.9233984055</cda_stall> <!-- Cessna Wert -->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <cp>0.665 -1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
+      <cp>-0.665 -1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
       <area>0.04865</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward> <!-- das checken! -->
