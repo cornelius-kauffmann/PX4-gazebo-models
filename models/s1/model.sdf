@@ -1270,7 +1270,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>4.703e-04</motorConstant> <!-- aktuell höher als SUAVE -->
+      <motorConstant>2.703e-04</motorConstant> <!-- aktuell höher als SUAVE -->
       <momentConstant>0.0</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
@@ -1289,7 +1289,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>4.703e-04</motorConstant>
+      <motorConstant>2.703e-04</motorConstant>
       <momentConstant>0.0</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
