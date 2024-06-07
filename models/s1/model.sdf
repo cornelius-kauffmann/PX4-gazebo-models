@@ -974,16 +974,16 @@
     <!-- Canard -->
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
      <!-- Canard Left-->
-      <a0>0.0</a0> <!-- <a0>0.0175</a0> Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
-      <cla>4.419</cla> <!-- <cla>4.926</cla> -->
+      <a0>0.0175</a0> <!-- <a0>0.0175</a0> Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
+      <cla>4.926</cla> <!-- <cla>4.926</cla> -->
       <cda>0.3582</cda> <!-- S_mw / (S_canard + S_mw) * cda_tot_rel_to_s_mw -->
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <cp>0.602 0.584509 -0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
-      <area>0.505</area> <!-- <area>0.207</area> -->
+      <cp>1.0554 0.584509 -0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
+      <area>0.207</area> <!-- <area>0.207</area> -->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -998,16 +998,16 @@
     </plugin>
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
       <!-- Canard Right-->
-      <a0>0.0</a0> <!-- <a0>0.0175</a0> Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
-      <cla>4.419</cla> <!-- <cla>4.926</cla> -->
+      <a0>0.0175</a0> <!-- <a0>0.0175</a0> Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
+      <cla>4.926</cla> <!-- <cla>4.926</cla> -->
       <cda>0.3582</cda> <!-- S_mw / (S_canard + S_mw) * cda_tot_rel_to_s_mw -->
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <cp>0.602 -0.584509	-0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
-      <area>0.505</area> <!-- <area>0.207</area> -->
+      <cp>1.0554 -0.584509	-0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
+      <area>0.207</area> <!-- <area>0.207</area> -->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -1031,7 +1031,7 @@
       <cla_stall>-1.428</cla_stall> <!-- __corny: -1.428/rad, p4: -2.1001-->
       <cda_stall>1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <cp>-0.602	0.962509	0.089</cp>
+      <cp>-0.602	0.962509	0.089</cp> <!-- -0.602	0.962509	0.089 -->
       <area>0.505</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -1051,11 +1051,11 @@
       <cla>4.419</cla>
       <cda>0.3582</cda> <!-- S_mw / (S_canard + S_mw) * cda_tot_rel_to_s_mw -->
       <cma>0</cma> 
-      <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
+      <alpha_stall>-0.2443</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
       <cla_stall>-1.428</cla_stall> <!-- __corny: -1.428/rad, p4: -2.1001-->
       <cda_stall>1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <cp>-0.602	-0.962509	0.089</cp>
+      <cp>-0.602	-0.962509	0.089</cp> <!-- -0.602	0.962509	0.089 -->
       <area>0.505</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -1068,41 +1068,6 @@
       filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>servo_3</joint_name>
       <sub_topic>servo_3</sub_topic>
-    </plugin>
-    <!-- Winglets -->
-    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
-        <!-- Winglet Left -->
-      <a0>0.</a0> <!-- Initital alpha of wing. Attention! This is not alpha for cl=0!!!-->
-      <cla>4.752798721</cla> <!-- Muss auf Winglet Fläche referenziert sein! Hier habe ich Cessna Wert genutzt-->
-      <cda>0.</cda> <!-- set to zero -->
-      <cma>0</cma> 
-      <alpha_stall>0.2094</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
-      <cla_stall>-1.428</cla_stall> <!-- das ist alt: __corny: -1.428/rad, p4: -2.1001-->
-      <cda_stall>-0.9233984055</cda_stall> <!-- Cessna Wert -->
-      <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <cp>-0.665 1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
-      <area>0.04865</area>
-      <air_density>1.2</air_density>
-      <forward>1 0 0</forward> <!-- das checken! -->
-      <upward>0 1 0</upward> <!-- das checken! -->
-      <link_name>base_link</link_name>
-    </plugin>
-    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
-        <!-- Winglet Right-->
-      <a0>0.</a0> <!-- Initital alpha of wing. Attention! This is not alpha for cl=0!!!-->
-      <cla>4.752798721</cla> <!-- Muss auf Winglet Fläche referenziert sein! Hier habe ich Cessna Wert genutzt-->
-      <cda>0.</cda> <!-- set to zero -->
-      <cma>0</cma> 
-      <alpha_stall>0.2094</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
-      <cla_stall>-1.428</cla_stall> <!-- das ist alt: __corny: -1.428/rad, p4: -2.1001-->
-      <cda_stall>-0.9233984055</cda_stall> <!-- Cessna Wert -->
-      <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <cp>-0.665 -1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
-      <area>0.04865</area>
-      <air_density>1.2</air_density>
-      <forward>1 0 0</forward> <!-- das checken! -->
-      <upward>0 1 0</upward> <!-- das checken! -->
-      <link_name>base_link</link_name>
     </plugin>
     
 
@@ -1270,8 +1235,8 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>2.703e-04</motorConstant> <!-- aktuell höher als SUAVE -->
-      <momentConstant>0.01</momentConstant> <!-- dragTorque = thrust*momentConstant -->
+      <motorConstant>4.703e-04</motorConstant> <!-- aktuell höher als SUAVE -->
+      <momentConstant>0.0</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
@@ -1289,8 +1254,8 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>2.703e-04</motorConstant>
-      <momentConstant>0.01</momentConstant> <!-- dragTorque = thrust*momentConstant -->
+      <motorConstant>4.703e-04</motorConstant>
+      <momentConstant>0.0</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
