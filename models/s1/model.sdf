@@ -1069,7 +1069,41 @@
       <joint_name>servo_3</joint_name>
       <sub_topic>servo_3</sub_topic>
     </plugin>
-
+    <!-- Winglets -->
+    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
+        <!-- Winglet Left -->
+      <a0>0.</a0> <!-- Initital alpha of wing. Attention! This is not alpha for cl=0!!!-->
+      <cla>4.752798721</cla> <!-- Muss auf Winglet Fläche referenziert sein! Hier habe ich Cessna Wert genutzt-->
+      <cda>0.</cda> <!-- set to zero -->
+      <cma>0</cma> 
+      <alpha_stall>0.2094</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
+      <cla_stall>-1.428</cla_stall> <!-- das ist alt: __corny: -1.428/rad, p4: -2.1001-->
+      <cda_stall>-0.9233984055</cda_stall> <!-- Cessna Wert -->
+      <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
+      <cp>-0.665 1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
+      <area>0.04865</area>
+      <air_density>1.2</air_density>
+      <forward>1 0 0</forward> <!-- das checken! -->
+      <upward>0 1 0</upward> <!-- das checken! -->
+      <link_name>base_link</link_name>
+    </plugin>
+    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
+        <!-- Winglet Right-->
+      <a0>0.</a0> <!-- Initital alpha of wing. Attention! This is not alpha for cl=0!!!-->
+      <cla>4.752798721</cla> <!-- Muss auf Winglet Fläche referenziert sein! Hier habe ich Cessna Wert genutzt-->
+      <cda>0.</cda> <!-- set to zero -->
+      <cma>0</cma> 
+      <alpha_stall>0.2094</alpha_stall> <!-- <14deg for safety, actually 15.3deg overal config-->
+      <cla_stall>-1.428</cla_stall> <!-- das ist alt: __corny: -1.428/rad, p4: -2.1001-->
+      <cda_stall>-0.9233984055</cda_stall> <!-- Cessna Wert -->
+      <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
+      <cp>-0.665 -1.7 0.089</cp> <!-- cp relativ zu base link (Schwerpunkt); hier ist z Position z=0 von main Wing -->
+      <area>0.04865</area>
+      <air_density>1.2</air_density>
+      <forward>1 0 0</forward> <!-- das checken! -->
+      <upward>0 1 0</upward> <!-- das checken! -->
+      <link_name>base_link</link_name>
+    </plugin>
     
 
 
