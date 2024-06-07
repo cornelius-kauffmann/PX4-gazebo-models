@@ -969,20 +969,21 @@
         </ode>
       </physics>
     </joint>
+
 <!-- Wing Aerodynamics -->
     <!-- Canard -->
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
      <!-- Canard Left-->
-      <a0>0.0175</a0> <!-- Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
-      <cla>4.926</cla>
+      <a0>0.0</a0> <!-- <a0>0.0175</a0> Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
+      <cla>4.419</cla> <!-- <cla>4.926</cla> -->
       <cda>0.3582</cda> <!-- S_mw / (S_canard + S_mw) * cda_tot_rel_to_s_mw -->
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <cp>1.0554 0.584509 -0.059526</cp> <!-- Position von cp relativ zu unten angegebenen Link -->
-      <area>0.207</area> <!-- __corny value for both together?-->
+      <cp>0.602 0.584509 -0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
+      <area>0.505</area> <!-- <area>0.207</area> -->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -997,16 +998,16 @@
     </plugin>
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
       <!-- Canard Right-->
-      <a0>0.0175</a0> <!-- Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
-      <cla>4.926</cla>
+      <a0>0.0</a0> <!-- <a0>0.0175</a0> Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
+      <cla>4.419</cla> <!-- <cla>4.926</cla> -->
       <cda>0.3582</cda> <!-- S_mw / (S_canard + S_mw) * cda_tot_rel_to_s_mw -->
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <cp>1.0554 -0.584509	-0.059526</cp> <!-- Position von cp relativ zu unten angegebenen Link -->
-      <area>0.207</area>
+      <cp>0.602 -0.584509	-0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
+      <area>0.505</area> <!-- <area>0.207</area> -->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
