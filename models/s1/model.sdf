@@ -975,7 +975,7 @@
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
      <!-- Canard Left-->
       <a0>0.0175</a0> <!-- <a0>0.0175</a0> Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
-      <cla>4.926</cla> <!-- <cla>4.926</cla> -->
+      <cla>6.926</cla> <!-- <cla>4.926</cla> -->
       <cda>0.3582</cda> <!-- S_mw / (S_canard + S_mw) * cda_tot_rel_to_s_mw  -->
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
@@ -989,7 +989,7 @@
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>servo_0</control_joint_name>
-      <control_joint_rad_to_cl>-0.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
+      <control_joint_rad_to_cl>0</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
@@ -999,7 +999,7 @@
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
       <!-- Canard Right-->
       <a0>0.0175</a0> <!-- <a0>0.0175</a0> Initital alpha of wing (should be positive). Attention! This is not alpha for cl=0!!!-->
-      <cla>4.926</cla> <!-- <cla>4.926</cla> -->
+      <cla>6.926</cla> <!-- <cla>4.926</cla> -->
       <cda>0.3582</cda> <!-- S_mw / (S_canard + S_mw) * cda_tot_rel_to_s_mw -->
       <cma>0.0</cma> <!--__corny: -4.6, p4: 0-->
       <alpha_stall>0.2443</alpha_stall> <!-- <14deg for safety, actually 16.2deg overal config-->
@@ -1013,7 +1013,7 @@
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>servo_1</control_joint_name>
-      <control_joint_rad_to_cl>-0.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
+      <control_joint_rad_to_cl>0</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
@@ -1038,7 +1038,7 @@
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>servo_2</control_joint_name>
-      <control_joint_rad_to_cl>-0.4888</control_joint_rad_to_cl> <!-- __corny: -0.4888, p4: -0.898, big difference -->
+      <control_joint_rad_to_cl>0</control_joint_rad_to_cl> <!-- __corny: -0.4888, p4: -0.898, big difference -->
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
@@ -1062,7 +1062,7 @@
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>servo_3</control_joint_name>
-      <control_joint_rad_to_cl>-0.4888</control_joint_rad_to_cl> <!-- __corny: -0.4888, p4: -0.898, big difference -->
+      <control_joint_rad_to_cl>0</control_joint_rad_to_cl> <!-- __corny: -0.4888, p4: -0.898, big difference -->
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
