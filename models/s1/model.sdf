@@ -983,7 +983,7 @@
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
       <cp>1.0554 0.584509 -0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
-      <area>0.505</area> <!-- <area>0.207</area> -->
+      <area>0.207</area> <!-- <area>0.207</area> -->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -1007,7 +1007,7 @@
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
       <cp>1.0554 -0.584509	-0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
-      <area>0.505</area> <!-- <area>0.207</area> -->
+      <area>0.207</area> <!-- <area>0.207</area> -->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
