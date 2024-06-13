@@ -6,7 +6,7 @@
 <!-- Base link (Fuselage + Wings) -->
     <link name='base_link'>
       <!-- 0 0 0.115 0 0 0 -->
-      <pose>0 0 0.115 0 0 0</pose> <!-- Position of S1 CG Frame relative to inertial frame. sitl flight controller is at base link origin. therefore CG should be at base link origin -->
+      <pose>0.2 0 0.115 0 0 0</pose> <!-- Position of S1 CG Frame relative to inertial frame. sitl flight controller is at base link origin. therefore CG should be at base link origin -->
       <inertial>
         <pose>0 0 0 0 0 0</pose> <!-- Position of inertia tensor relative to base_link frame (center of gravity) should be at base link origin -->
         <mass>24.0</mass>
@@ -982,7 +982,7 @@
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <cp>0.602 0.584509 -0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
+      <cp>0 0.584509 -0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
       <area>0.505</area> <!-- <area>0.207</area> -->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -1006,7 +1006,7 @@
       <cla_stall>-5.766</cla_stall> <!--__corny: -5.766, p4: -2.1001, big difference-->
       <cda_stall>1.12</cda_stall>
       <cma_stall>0</cma_stall> <!-- nicht modellierbar-->
-      <cp>0.602 -0.584509	-0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
+      <cp>0 -0.584509	-0.059526</cp> <!-- 1.0554 0.584509 -0.059526 Position von cp relativ zu unten angegebenen Link -->
       <area>0.505</area> <!-- <area>0.207</area> -->
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -1031,7 +1031,7 @@
       <cla_stall>-1.428</cla_stall> <!-- __corny: -1.428/rad, p4: -2.1001-->
       <cda_stall>1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <cp>-0.602	0.962509	0.089</cp>
+      <cp>0	0.962509	0.089</cp>
       <area>0.505</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -1055,7 +1055,7 @@
       <cla_stall>-1.428</cla_stall> <!-- __corny: -1.428/rad, p4: -2.1001-->
       <cda_stall>1.12</cda_stall> <!-- __corny: 1.12, p4: 0.8362, big difference-->
       <cma_stall>0</cma_stall> <!-- nicht modellierbar -->
-      <cp>-0.602	-0.962509	0.089</cp>
+      <cp>0	-0.962509	0.089</cp>
       <area>0.505</area>
       <air_density>1.2</air_density>
       <forward>1 0 0</forward>
@@ -1270,7 +1270,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>2.2e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
+      <motorConstant>2.5e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
       <momentConstant>0.01</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
@@ -1289,7 +1289,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>2.2e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
+      <motorConstant>2.5e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
       <momentConstant>0.0</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
