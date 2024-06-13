@@ -937,8 +937,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-0.53</lower>
-          <upper>0.53</upper>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
         </limit>
         <dynamics>
           <damping>0.100</damping>
@@ -956,8 +956,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-0.53</lower>
-          <upper>0.53</upper>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
         </limit>
         <dynamics>
           <damping>0.100</damping>
@@ -1038,7 +1038,7 @@
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>servo_2</control_joint_name>
-      <control_joint_rad_to_cl>0</control_joint_rad_to_cl> <!-- __corny: -0.4888, p4: -0.898, big difference -->
+      <control_joint_rad_to_cl>-0.4888</control_joint_rad_to_cl> <!-- __corny: -0.4888, p4: -0.898, big difference -->
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
@@ -1062,7 +1062,7 @@
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>servo_3</control_joint_name>
-      <control_joint_rad_to_cl>0</control_joint_rad_to_cl> <!-- __corny: -0.4888, p4: -0.898, big difference -->
+      <control_joint_rad_to_cl>-0.4888</control_joint_rad_to_cl> <!-- __corny: -0.4888, p4: -0.898, big difference -->
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
@@ -1270,7 +1270,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>3.5e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
+      <motorConstant>1.703e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
       <momentConstant>0.01</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
@@ -1289,7 +1289,7 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>3.5e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
+      <motorConstant>1.703e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
       <momentConstant>0.0</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
