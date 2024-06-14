@@ -1,18 +1,6 @@
 /*
- * Copyright (C) 2019 Open Source Robotics Foundation
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
+ * Author: Cornelius Kauffmann
+ * Date: 14.06.2024
  */
 
 #include "LiftDrag.hh"
@@ -165,4 +153,209 @@ void LiftDragPrivate::Load(const EntityComponentManager &_ecm, const sdf::Elemen
 }
 
 // Der Rest des Codes bleibt unverändert, da hier nur der Ladeprozess geändert wurde.
+//////////////////////////////////////////////////
+void LiftDragPrivate::Update(EntityComponentManager &_ecm)
+{
+  GZ_PROFILE("LiftDragPrivate::Update");
+  // get linear velocity at cp in world frame
+  const auto worldLinVel =
+      _ecm.Component<components::WorldLinearVelocity>(this->linkEntity);
+  const auto worldAngVel =
+      _ecm.Component<components::WorldAngularVelocity>(this->linkEntity);
+  const auto worldPose =
+      _ecm.Component<components::WorldPose>(this->linkEntity);
+
+  // get wind as a component from the _ecm
+  components::WorldLinearVelocity *windLinearVel = nullptr;
+  if(_ecm.EntityByComponents(components::Wind()) != kNullEntity){
+    Entity windEntity = _ecm.EntityByComponents(components::Wind());
+    windLinearVel =
+        _ecm.Component<components::WorldLinearVelocity>(windEntity);
+  }
+  components::JointPosition *controlJointPosition = nullptr;
+  if (this->controlJointEntity != kNullEntity)
+  {
+    controlJointPosition =
+        _ecm.Component<components::JointPosition>(this->controlJointEntity);
+  }
+
+  if (!worldLinVel || !worldAngVel || !worldPose)
+  {
+    return;
+  }
+
+  const auto &pose = worldPose->Data();
+  const auto cpWorld = pose.Rot().RotateVector(this->cp);
+  auto vel = worldLinVel->Data() + worldAngVel->Data().Cross(
+  cpWorld);
+  if (windLinearVel != nullptr){
+    vel -= windLinearVel->Data();
+  }
+
+  if (vel.Length() <= 0.01)
+  {
+    return;
+  }
+
+  const auto velI = vel.Normalized();
+  const auto forwardI = pose.Rot().RotateVector(this->forward);
+  if (forwardI.Dot(vel) <= 0.0){
+    return;
+  }
+
+  math::Vector3d upwardI;
+  if (this->radialSymmetry)
+  {
+    math::Vector3d tmp = forwardI.Cross(velI);
+    upwardI = forwardI.Cross(tmp).Normalize();
+  }
+  else
+  {
+    upwardI = pose.Rot().RotateVector(this->upward);
+  }
+
+  const auto spanwiseI = forwardI.Cross(upwardI).Normalize();
+  double sinSweepAngle = math::clamp(spanwiseI.Dot(velI), -1.0, 1.0);
+  double cos2SweepAngle = 1.0 - sinSweepAngle * sinSweepAngle;
+  double sweep = std::asin(sinSweepAngle);
+
+  while (std::fabs(sweep) > 0.5 * GZ_PI)
+  {
+    sweep = sweep > 0 ? sweep - GZ_PI : sweep + GZ_PI;
+  }
+
+  const auto velInLDPlane = vel - vel.Dot(spanwiseI)*spanwiseI;
+  const auto dragDirection = -velInLDPlane.Normalized();
+  const auto liftI = spanwiseI.Cross(velInLDPlane).Normalized();
+  const double cosAlpha = math::clamp(liftI.Dot(upwardI), -1.0, 1.0);
+  double alpha = this->alpha0 - std::acos(cosAlpha);
+  if (liftI.Dot(forwardI) >= 0.0)
+    alpha = this->alpha0 + std::acos(cosAlpha);
+
+  while (fabs(alpha) > 0.5 * GZ_PI)
+  {
+    alpha = alpha > 0 ? alpha - GZ_PI : alpha + GZ_PI;
+  }
+
+  const double speedInLDPlane = velInLDPlane.Length();
+  const double q = 0.5 * this->rho * speedInLDPlane * speedInLDPlane;
+
+  double cl;
+  if (alpha > this->alphaStall)
+  {
+    cl = (this->cla * this->alphaStall + this->claStall * (alpha - this->alphaStall)) * cos2SweepAngle;
+    cl = std::max(0.0, cl);
+  }
+  else if (alpha < -this->alphaStall)
+  {
+    cl = (-this->cla * this->alphaStall + this->claStall * (alpha + this->alphaStall)) * cos2SweepAngle;
+    cl = std::min(0.0, cl);
+  }
+  else
+  {
+    cl = this->cla * alpha * cos2SweepAngle;
+  }
+
+  if (controlJointPosition && !controlJointPosition->Data().empty())
+  {
+    cl += this->controlJointRadToCL * controlJointPosition->Data()[0];
+  }
+
+  math::Vector3d lift = cl * q * this->area * liftI;
+
+  double cd;
+  if (alpha > this->alphaStall)
+  {
+    cd = (this->cda * this->alphaStall + this->cdaStall * (alpha - this->alphaStall)) * cos2SweepAngle;
+  }
+  else if (alpha < -this->alphaStall)
+  {
+    cd = (-this->cda * this->alphaStall + this->cdaStall * (alpha + this->alphaStall)) * cos2SweepAngle;
+  }
+  else
+  {
+    cd = (this->cda * alpha) * cos2SweepAngle;
+  }
+  cd = std::fabs(cd);
+
+  math::Vector3d drag = cd * q * this->area * dragDirection;
+
+  double cm;
+  if (alpha > this->alphaStall)
+  {
+    cm = (this->cma * this->alphaStall + this->cmaStall * (alpha - this->alphaStall)) * cos2SweepAngle;
+    cm = std::max(0.0, cm);
+  }
+  else if (alpha < -this->alphaStall)
+  {
+    cm = (-this->cma * this->alphaStall + this->cmaStall * (alpha + this->alphaStall)) * cos2SweepAngle;
+    cm = std::min(0.0, cm);
+  }
+  else
+  {
+    cm = this->cma * alpha * cos2SweepAngle;
+  }
+
+  if (controlJointPosition && !controlJointPosition->Data().empty())
+  {
+    cm += this->cm_delta * controlJointPosition->Data()[0];
+  }
+
+  math::Vector3d moment = cm * q * this->area * spanwiseI;
+  math::Vector3d force = lift + drag;
+  math::Vector3d torque = moment;
+  force.Correct();
+  torque.Correct();
+  const auto totalTorque = torque + cpWorld.Cross(force);
+  Link link(this->linkEntity);
+  link.AddWorldWrench(_ecm, force, totalTorque);
+}
+
+void LiftDrag::Configure(const Entity &_entity, const std::shared_ptr<const sdf::Element> &_sdf, EntityComponentManager &_ecm, EventManager &)
+{
+  this->dataPtr->model = Model(_entity);
+  if (!this->dataPtr->model.Valid(_ecm))
+  {
+    gzerr << "The LiftDrag system should be attached to a model entity. Failed to initialize." << std::endl;
+    return;
+  }
+  this->dataPtr->sdfConfig = _sdf->Clone();
+}
+
+void LiftDrag::PreUpdate(const UpdateInfo &_info, EntityComponentManager &_ecm)
+{
+  GZ_PROFILE("LiftDrag::PreUpdate");
+  if (_info.dt < std::chrono::steady_clock::duration::zero())
+  {
+    gzwarn << "Detected jump back in time [" << std::chrono::duration<double>(_info.dt).count() << "s]. System may not work properly." << std::endl;
+  }
+
+  if (!this->dataPtr->initialized)
+  {
+    this->dataPtr->Load(_ecm, this->dataPtr->sdfConfig);
+    this->dataPtr->initialized = true;
+
+    if (this->dataPtr->validConfig)
+    {
+      Link link(this->dataPtr->linkEntity);
+      link.EnableVelocityChecks(_ecm, true);
+
+      if ((this->dataPtr->controlJointEntity != kNullEntity) && !_ecm.Component<components::JointPosition>(this->dataPtr->controlJointEntity))
+      {
+        _ecm.CreateComponent(this->dataPtr->controlJointEntity, components::JointPosition());
+      }
+    }
+  }
+
+  if (_info.paused)
+    return;
+
+  if (this->dataPtr->initialized && this->dataPtr->validConfig)
+  {
+    this->dataPtr->Update(_ecm);
+  }
+}
+
+GZ_ADD_PLUGIN(LiftDrag, System, LiftDrag::ISystemConfigure, LiftDrag::ISystemPreUpdate)
+GZ_ADD_PLUGIN_ALIAS(LiftDrag, "gz::sim::systems::LiftDrag")
 
