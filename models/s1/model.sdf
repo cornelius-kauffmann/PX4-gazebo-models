@@ -989,7 +989,7 @@
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>servo_0</control_joint_name>
-      <control_joint_rad_to_cl>-0.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
+      <control_joint_rad_to_cl>-1.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
@@ -1013,7 +1013,7 @@
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>servo_1</control_joint_name>
-      <control_joint_rad_to_cl>-0.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
+      <control_joint_rad_to_cl>-1.5687</control_joint_rad_to_cl> <!-- __corny: -0.5687, p4: -1.128, big difference-->
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
@@ -1152,14 +1152,14 @@
         name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_2_joint</jointName>
       <linkName>rotor_2</linkName>
-      <turningDirection>cw</turningDirection>
+      <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>1</motorNumber> <!-- wird auch auf 1 gestellt, damit wir PX4 nutzen können -->
+      <motorNumber>2</motorNumber> <!-- wird auch auf 1 gestellt, damit wir PX4 nutzen können -->
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
@@ -1171,14 +1171,14 @@
         name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_3_joint</jointName>
       <linkName>rotor_3</linkName>
-      <turningDirection>ccw</turningDirection>
+      <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant> 
       <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>2</motorNumber>
+      <motorNumber>3</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
@@ -1197,7 +1197,7 @@
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>3</motorNumber>
+      <motorNumber>4</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
@@ -1216,7 +1216,7 @@
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>4</motorNumber>
+      <motorNumber>5</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
@@ -1228,14 +1228,14 @@
         name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_6_joint</jointName>
       <linkName>rotor_6</linkName>
-      <turningDirection>ccw</turningDirection>
+      <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>4</motorNumber>  <!-- wird auch auf 4 gestellt, damit wir PX4 nutzen können -->
+      <motorNumber>6</motorNumber>  <!-- wird auch auf 4 gestellt, damit wir PX4 nutzen können -->
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
@@ -1247,14 +1247,14 @@
         name="gz::sim::systems::MulticopterMotorModel">
       <jointName>rotor_7_joint</jointName>
       <linkName>rotor_7</linkName>
-      <turningDirection>cw</turningDirection>
+      <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>744</maxRotVelocity> <!-- omega in rad/s -->
       <motorConstant>7.2597e-05</motorConstant>
       <momentConstant>0.06</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>5</motorNumber>
+      <motorNumber>7</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
@@ -1270,10 +1270,10 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>1.703e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
+      <motorConstant>2.203e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
       <momentConstant>0.01</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>6</motorNumber>
+      <motorNumber>8</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
@@ -1289,10 +1289,10 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>388</maxRotVelocity> <!-- omega in rad/s -->
-      <motorConstant>1.703e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
+      <motorConstant>2.203e-04</motorConstant> <!-- calculated Value by SUAVE: 1.703e-04 -->
       <momentConstant>0.0</momentConstant> <!-- dragTorque = thrust*momentConstant -->
       <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>6</motorNumber>
+      <motorNumber>9</motorNumber>
       <rotorDragCoefficient>0.000106428</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
